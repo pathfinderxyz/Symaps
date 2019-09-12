@@ -60,7 +60,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Fast2send</title>
+    <title>Symaps</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
@@ -80,7 +80,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
     <!-- icono del sistema -->
-    <link rel="shortcut icon" href="img/favicon.png"/>
+    <link rel="shortcut icon" href="img/mapas.png"/>
     <style type="text/css">
       .logov{
         margin-left: 15px;
@@ -106,7 +106,7 @@
                             <i class="fa fa-bars icon"></i>
                         </button>
                         <ol class="breadcrumb navbar-breadcrumb">
-                            <li class="active">Control de envios</li>
+                            <li class="active">Geolocalizacion de imagenes</li>
                         </ol>
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-th icon"></i>
@@ -175,7 +175,7 @@
                     <div class="side-menu-container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">
-                                <div class="logov"><img src="img/minvih.png" width="30px"/>Fast2send</div>
+                                <div class="logov"><img src="" width="30px"/>SYMAPS</div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                                 <i class="fa fa-times icon"></i>
@@ -192,18 +192,18 @@
                                   if ($_SESSION['rol'] == 'admin') {
                                      echo '<li class="panel panel-default dropdown ">
                                          <a data-toggle="collapse" href="#dropdown-element">
-                                             <span class="icon glyphicon glyphicon-send"></span><span class="title">Envios</span>
+                                             <span class="icon glyphicon glyphicon-map-marker"></span><span class="title">Localizar</span>
                                          </a>
                                          <!-- Dropdown level 1 -->
                                          <div id="dropdown-element" class="panel-collapse collapse">
                                          <div class="panel-body">
                                              <ul class="nav navbar-nav">
                                                 
-                                                 <li><a href="?page=buscar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;tracking</a>
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar</a>
                                                  </li> 
-                                                 <li><a href="?page=enviostransito">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-sort"></i>&nbsp;&nbsp;&nbsp;Envíos en transito</a>
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-sort"></i>&nbsp;&nbsp;&nbsp;Modificar</a>
                                                  </li>   
-                                                 <li><a href="?page=historial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;&nbsp;Historial de envíos </a>
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;Ubicar </a>
                                                  </li>     
                                           </div>
                                          </div>
@@ -223,7 +223,7 @@
 
                             <li class="panel panel-default dropdown">
                                 
-                                    <a href="http://fast2send.com/hosting-cost-calculator/"><span class="icon glyphicon glyphicon-list-alt"></span><span class="title">Cotizador</span></a>
+                                    <a href="#"><span class="icon glyphicon glyphicon-globe"></span><span class="title">Georeferencia</span></a>
                                 
                                 
                             </li>';
@@ -231,8 +231,8 @@
                             ?>
 
                              <li class="panel panel-default dropdown ">
-                                         <a href="?page=consultar">
-                                             <span class="icon glyphicon glyphicon-object-align-left"></span><span class="title">Estado de cuenta</span>
+                                         <a href="#">
+                                             <span class="icon glyphicon glyphicon-object-align-left"></span><span class="title">Estadisticas</span>
                                          </a>
                             </li>
                             

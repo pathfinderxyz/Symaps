@@ -1,6 +1,6 @@
  <div class="page-title">
-                        <span class="title">2Fast</span>
-                        <div class="description">Control de Envios de Fast2send.com</div>
+                        <span class="title">Symaps</span>
+                        <div class="description">Sistema para imagenes georeferenciadas</div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        El 2Fast fue creado para dar seguimiento a sus envíos, facturas, pagos y estados de cuentas<br><br>
+                                        Symaps fue creado para ubicar georeferenciar lugares especificos en el planeta<br><br>
  
                                         Elija la opcion que desea realizar:<br><br>
 
@@ -25,26 +25,26 @@
                                     <ul class="icons-list">
 
                                          <li>
-                                            <a href="http://fast2send.com/hosting-cost-calculator/">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Cotizar</span></a>
+                                            <a href="#">
+                                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Maps</span></a>
                                         </li>
                                         <li>
-                                            <a href="?page=consultar">
+                                            <a href="#">
                                             <span class="glyphicon glyphicon-object-align-left" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Ver estado de cuenta</span>
+                                            <span class="glyphicon-class">Ver estadisticas</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="?page=buscar">
+                                            <a href="#">
                                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Tracking</span>
+                                            <span class="glyphicon-class">Buscar</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="?page=historial">
-                                            <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Historial de envios</span>
+                                            <a href="#">
+                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Geolocalizar</span>
                                             </a>
                                         </li>
                                     </ul>
