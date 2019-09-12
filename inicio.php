@@ -80,7 +80,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
     <!-- icono del sistema -->
-    <link rel="shortcut icon" href="img/mapas.png"/>
+    <link rel="shortcut icon" href="img/ICONO-AMARILLO.png"/>
     <style type="text/css">
       .logov{
         margin-left: 15px;
@@ -175,7 +175,7 @@
                     <div class="side-menu-container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">
-                                <div class="logov"><img src="" width="30px"/>SYMAPS</div>
+                                <div class="logov"><img src="img/ICONO-BLANCO.png" width="30px"/>SYMAPS</div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                                 <i class="fa fa-times icon"></i>
