@@ -21,12 +21,11 @@
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
     <link rel="shortcut icon" href="img/favicon.png"/>
 </head>
-<style>
+*/<style>
    body {
-    background: url("img/banner-login.png") no-repeat center 10%;
+    background: url("") no-repeat center 10%;
    }
-
-</style>
+</style>/*
 
 <body class="flat-blue login-page">
     <div class="container">
@@ -39,7 +38,7 @@
                         <div class="login-body">
                          
                             
-                           <img src="img/fast-send-logo.png" align= "left" width="100%"><br><br>
+                           <img src="img/mapas.png" align= "left" width="100%"><br><br>
                              <div class="login-col"><br>
                                 
                                    <span style=color:"#ffffff";>&nbsp; &nbsp;</span> 
