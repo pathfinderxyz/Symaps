@@ -25,28 +25,23 @@
                                     <ul class="icons-list">
 
                                          <li>
-                                            <a href="#">
-                                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                            <a href="?page=buscar">
+                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
                                             <span class="glyphicon-class">Maps</span></a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                            <span class="glyphicon glyphicon-object-align-left" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Ver estadisticas</span>
+                                            <a href="?page=continente">
+                                            <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Continentes</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Buscar</span>
+                                            <a href="?page=basici">
+                                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Geo</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#">
-                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Geolocalizar</span>
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>

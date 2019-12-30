@@ -36,8 +36,6 @@
                 $file = 'registrar/registro_exitoso.php';   
             }elseif ($_GET['page'] == 'enviostransito') {
                 $file = 'ver_registros/ver.php';   
-            }elseif ($_GET['page'] == 'buscar') {
-                $file = 'buscar/consultar.php';   
             }elseif ($_GET['page'] == 'update') {
                 $file = 'actualizar/update.php';   
             }elseif ($_GET['page'] == 'update2') {
@@ -48,6 +46,14 @@
                 $file = 'ver_registros/historial.php';   
             }elseif ($_GET['page'] == 'consultar') {
                 $file = 'ver_registros/estado_cuenta.php';   
+            }elseif ($_GET['page'] == 'buscar') {
+                $file = 'search/localizar.html';   
+            }elseif ($_GET['page'] == 'continente') {
+                $file = 'search/continente.php';   
+            }elseif ($_GET['page'] == 'basici') {
+                $file = 'geo/basici.php';   
+            }elseif ($_GET['page'] == 'modern') {
+                $file = 'geo/modern.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -89,6 +95,10 @@
       }
 
     </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="http://maps.google.com/maps/api/js?key=AIzaSyCKLCNv2yG5QPZAvvFeG7Jc4CA3wGgf2us"></script>
+    <script type="text/javascript" src="gmaps.js"></script>
 
 
 </head>
@@ -115,6 +125,13 @@
 
                       <!--- menu derecho -->
                     <ul class="nav navbar-nav navbar-right">
+
+                         
+                        <li>
+                        <a href="?page=buscar" class="mitooltip" title="Buscar" data-placement="top"><?php echo date('l jS \of F Y h:i:s A'); ?></a>
+                        </li>
+                            
+
                         <li>
                         <a href="#" class="mitooltip" title="Usuario Logeado" data-placement="top"><?php echo $_SESSION['encargado'];?></a>
                         </li>
@@ -124,6 +141,8 @@
                             $comrep = pg_query("select count(serial) as total2 from comp_enreparacion");
                             $cr = pg_fetch_assoc($comrep);
                         ?>
+                         
+                        
                      <!--    <?php  
                                   if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'bne') {
                                      echo '
@@ -199,43 +218,39 @@
                                          <div class="panel-body">
                                              <ul class="nav navbar-nav">
                                                 
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar</a>
+                                                 <li><a href="?page=buscar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;Buscar</a>
                                                  </li> 
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-sort"></i>&nbsp;&nbsp;&nbsp;Modificar</a>
+                                                 <li><a href="?page=continente">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-plane"></i>&nbsp;&nbsp;&nbsp;Continentes</a>
                                                  </li>   
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;Ubicar </a>
-                                                 </li>     
+                                                     
                                           </div>
                                          </div>
                                      </li>';
                                          }
                                  ?>
                                  
-                             
-                        
-
-                            
-                            
-                            <!-- Dropdown-->
-                            <?php  
-                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'bne') {
-                                     echo '
-
-                            <li class="panel panel-default dropdown">
-                                
-                                    <a href="#"><span class="icon glyphicon glyphicon-globe"></span><span class="title">Georeferencia</span></a>
-                                
-                                
-                            </li>';
-                                }
-                            ?>
-
-                             <li class="panel panel-default dropdown ">
-                                         <a href="#">
-                                             <span class="icon glyphicon glyphicon-object-align-left"></span><span class="title">Estadisticas</span>
+                                     
+                                 
+                                     <li class="panel panel-default dropdown ">
+                                         <a data-toggle="collapse" href="#georeferencia">
+                                             <span class="icon glyphicon glyphicon-globe"></span><span class="title">Geo</span>
                                          </a>
-                            </li>
-                            
+                                         <!-- Dropdown level 1 -->
+                                         <div id="georeferencia" class="panel-collapse collapse">
+                                         <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                
+                                                 <li><a href="?page=basici">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-equalizer"></i>&nbsp;&nbsp;&nbsp;Basin</a>
+                                                 </li> 
+                                                 <li><a href="?page=modern">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-stats"></i>&nbsp;&nbsp;&nbsp;Modern Analogue</a>
+                                                 </li>   
+                                                     
+                                          </div>
+                                         </div>
+                                     </li>
+                                  
+
+                          
                     
                              
                             <!-- Dropdown-->
@@ -263,7 +278,7 @@
 
                <footer class="app-footer">
                   <div class="wrapper">
-                      <span> </span> © Fast2send 2019 Copyright.
+                      <span> </span> © Sysmap 2020 Copyright.
                   </div>
               </footer>
              </div>
