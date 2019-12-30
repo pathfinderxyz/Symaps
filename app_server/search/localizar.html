@@ -1,0 +1,142 @@
+    <style type="text/css">
+        #map {
+            display: block;
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            -moz-box-shadow: 0px 5px 20px #ccc;
+            -webkit-box-shadow: 0px 5px 20px #ccc;
+            box-shadow: 0px 5px 20px #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        var map, lat, lng, polygon, marca;
+
+        $(document).ready(function () {
+            //creamos el mapa
+            map = new GMaps({
+                el: '#map',
+                lat: 0,
+                lng: 0,
+            });
+            // Creamos la geolocalización
+            GMaps.geolocate({
+                success: function (position) {
+                    lat = position.coords.latitude;
+                    lng = position.coords.longitude;
+
+                    //Definimos la vista del mapa sobre las coordenadas obtenidas
+                    map.setCenter(lat, lng);
+                    //Añadimos un marcador
+                    marca=map.addMarker({ lat: lat, lng: lng });
+
+                    map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+
+
+                },
+                error: function (error) {
+                    alert('Geolocation failed: ' + error.message);
+                },
+                not_supported: function () {
+                    alert("Your browser does not support geolocation");
+                }
+            });
+        });
+
+        function localizar() {
+            if (marca!=null) map.removeMarker(marca); 
+            // Creamos la geolocalización
+            lat = document.getElementById("lat").value;
+            lng = document.getElementById("lon").value;
+            //Definimos la vista del mapa sobre las coordenadas obtenidas
+            map.setCenter(lat, lng);
+            //Añadimos un marcador
+            marca=map.addMarker({ lat: lat, lng: lng });
+
+            //map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+
+            if(polygon != null) map.removePolygon(polygon);
+
+
+            var path = [[lat+0.00000001, lng+0.00000001], [lat+0.00000001, parseInt(lng)-0.00000001], [parseInt(lat)-0.00000001, parseInt(lng)-0.00000001], [parseInt(lat)-0.00000001, lng+0.00000001]];
+
+            polygon = map.drawPolygon({
+                paths: path, // pre-defined polygon shape
+                strokeColor: '#FF0000',
+                strokeOpacity: 1,
+                strokeWeight: 3,
+                fillColor: '#FF0000',
+                fillOpacity: 0.6
+            });
+
+        }
+    </script>
+
+         
+         <div class="page-title">
+             <span class="title">Geolocation</span>
+                <div class="description">Introduzca los datos del punto a ubicar</div>
+        </div>
+     
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <div class="title">Bienvenido</div>
+                                    </div>
+                                    <div class="pull-right card-action">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalCardProfileExample"><i class="fa fa-bars"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="card-body">
+                                
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label"><code>latitud</code></label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="lat" placeholder="Coordenadas 10.13899">
+                                            </div>
+                                        </div><br><br>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-2 control-label"><code>longitud</code></label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="lon" placeholder="Coordenadas -32.13899">
+                                            </div>
+                                        </div><br><br>
+                                        
+                                       
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                
+                                                <button id="btn" class="btn btn-info" onclick="localizar()">Ubicar</button>
+                                                
+                                            </div>
+                                        </div><br><br>
+                                        <p>*Haz click en el siguiente bot&oacute;n para localizarte</p>
+                                    
+                                 </div>
+                                
+                         </div>
+                         </div>
+                          <div class="col-sm-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <div class="title">Maps</div>
+                                    </div>
+                                    <div class="pull-right card-action">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalCardProfileExample"><i class="fa fa-globe"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div id="map" style="height: 400px; width: 100%; "></div>
+
+                                
+                         </div>
+                     </div>
+        </div>
+
+

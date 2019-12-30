@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>GMaps.js &mdash; Geolocation</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="http://maps.google.com/maps/api/js?key=AIzaSyCKLCNv2yG5QPZAvvFeG7Jc4CA3wGgf2us"></script>
+    <script type="text/javascript" src="gmaps.js"></script>
+
+    <style type="text/css">
+        #map {
+            display: block;
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            -moz-box-shadow: 0px 5px 20px #ccc;
+            -webkit-box-shadow: 0px 5px 20px #ccc;
+            box-shadow: 0px 5px 20px #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        var map, lat, lng, polygon, marca;
+
+        $(document).ready(function () {
+            //creamos el mapa
+            map = new GMaps({
+                el: '#map',
+                lat: 0,
+                lng: 0,
+            });
+            // Creamos la geolocalización
+            GMaps.geolocate({
+                success: function (position) {
+                    lat = position.coords.latitude;
+                    lng = position.coords.longitude;
+
+                    //Definimos la vista del mapa sobre las coordenadas obtenidas
+                    map.setCenter(lat, lng);
+                    //Añadimos un marcador
+                    marca=map.addMarker({ lat: lat, lng: lng });
+
+                    map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+
+
+                },
+                error: function (error) {
+                    alert('Geolocation failed: ' + error.message);
+                },
+                not_supported: function () {
+                    alert("Your browser does not support geolocation");
+                }
+            });
+        });
+
+        function localizar() {
+            if (marca!=null) map.removeMarker(marca); 
+            // Creamos la geolocalización
+            lat = document.getElementById("lat").value;
+            lng = document.getElementById("lon").value;
+            //Definimos la vista del mapa sobre las coordenadas obtenidas
+            map.setCenter(lat, lng);
+            //Añadimos un marcador
+            marca=map.addMarker({ lat: lat, lng: lng });
+
+            //map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+
+            if(polygon != null) map.removePolygon(polygon);
+
+
+            var path = [[lat+0.00000001, lng+0.00000001], [lat+0.00000001, parseInt(lng)-0.00000001], [parseInt(lat)-0.00000001, parseInt(lng)-0.00000001], [parseInt(lat)-0.00000001, lng+0.00000001]];
+
+            polygon = map.drawPolygon({
+                paths: path, // pre-defined polygon shape
+                strokeColor: '#FF0000',
+                strokeOpacity: 1,
+                strokeWeight: 3,
+                fillColor: '#FF0000',
+                fillOpacity: 0.6
+            });
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>GMaps.js &mdash; Geolocation</h1>
+    <div id="map" style="height: 400px; width: 600px; "></div>
+
+    <label>latitude</label><input id='lat' type="text">
+
+    <label>longitude</label><input id='lon' type="text">
+
+    <h2>Haz click en el siguiente bot&oacute;n para localizarte</h2>
+    <button id="btn" onclick="localizar()">¡Local&iacute;zame!</button>
+</body>
+
+</html>
